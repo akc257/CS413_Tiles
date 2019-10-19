@@ -5,7 +5,7 @@ tiles	and	some	sort	of	tile	layout	engine	as	part	of	the	game.	The	tile	map	that
 be	larger	than	the	screen	- this	in	turn	implies	that	you	do	some	kind	of	screen	or	camera	
 management.
 You	should	design	your	game	for	a	play	experience	of	roughly	one	to	three	minutes.
-### Technical	Objectives
+## Technical	Objectives
 Technical	objectives	describe	the	organizational	or	code-related	features	that	are	a	
 required	part	of	your	game	and	will	be	evaluated	in	the	technical	objective	rubric	for	this	
 project.		In	grading	technical	objectives,	we	will	ask	the	question	“How	well	does	this	
@@ -17,7 +17,7 @@ learning	outcomes	associated	with	the	project	description.
 * Use	of	spritesheets
 * Use	of	scene	graph	and	classes	to	organize	“screens”
 * Use	of	Git
-### Creative	Objectives
+## Creative	Objectives
 Creative	objectives	mirror	the	technical	objectives	but	involve	subjective	creative	features	
 of	your	project.
 * Compelling	and	attractive	design
@@ -26,7 +26,7 @@ of	your	project.
 * Consistent	branding	/	atmosphere
 * Balance	of	difficulty
 
-### What	do	I	turn	in?
+## What	do	I	turn	in?
 In	BBLearn	you	should	turn	in	a	report	(entered	with	the	BBLearn	editor)	with	the	
 following	format:
 * Project	#	and	Title
