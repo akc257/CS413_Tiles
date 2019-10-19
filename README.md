@@ -13,33 +13,33 @@ project	provide	evidence	of	the	objective?”		For	example,	a	single	Git	commit	
 not represent	outstanding	“use	of	git”.		You	should	design	your	game	with	technical	and	
 creative	objectives	in	mind	such	that	your	project	design	supports	the	objectives	and	
 learning	outcomes	associated	with	the	project	description.
-• Use	of	tiles
-• Use	of	spritesheets
-• Use	of	scene	graph	and	classes	to	organize	“screens”
-• Use	of	Git
+* Use	of	tiles
+* Use	of	spritesheets
+* Use	of	scene	graph	and	classes	to	organize	“screens”
+* Use	of	Git
 ### Creative	Objectives
 Creative	objectives	mirror	the	technical	objectives	but	involve	subjective	creative	features	
 of	your	project.
-• Compelling	and	attractive	design
-• Interesting	/	fun
-• Consistent	palette	/	style
-• Consistent	branding	/	atmosphere
-• Balance	of	difficulty
-2
+* Compelling	and	attractive	design
+* Interesting	/	fun
+* Consistent	palette	/	style
+* Consistent	branding	/	atmosphere
+* Balance	of	difficulty
+
 ### What	do	I	turn	in?
 In	BBLearn	you	should	turn	in	a	report	(entered	with	the	BBLearn	editor)	with	the	
 following	format:
-Project	#	and	Title
-Your	Title
-http://dana.ucc.nau.edu/YOUR_ID/cs413/project_3
-Link	to	Github	Repository
+* Project	#	and	Title
+* Your	Title
+* http://dana.ucc.nau.edu/YOUR_ID/cs413/project_3
+* https://github.com/akc257/CS413_Tiles
 Your	Github	repository	should	contain	all	the	code	for	your	repository	including	any	library	
 dependencies	(which isn’t	necessarily	a	great	practice	but	it	makes	it	easier	for	us	to	grade	
 and	debug).		The	“index.html”	entry	point	for	your	game	should	be	in	the	topmost	directory.		
 You	should	also	have	a	“thumb.png” file	which	is	sized	to	150	pixels	wide	(height	may	
 maintain	the	aspect	ratio).
 Your	index.html	file should contain:
-• The	game	canvas
-• Instructions on how to play	the	game
-• A	Disqus embed	code
+* The	game	canvas
+* Instructions on how to play	the	game
+* A	Disqus embed	code
 The	grading	rubric,	which	is	common	for	all	projects,	is	posted	in	BBLearn.
