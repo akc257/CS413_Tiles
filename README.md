@@ -33,6 +33,7 @@ following	format:
 * Your	Title
 * http://dana.ucc.nau.edu/YOUR_ID/cs413/project_3
 * https://github.com/akc257/CS413_Tiles
+### What should Github Repo contain?
 Your	Github	repository	should	contain	all	the	code	for	your	repository	including	any	library	
 dependencies	(which isn’t	necessarily	a	great	practice	but	it	makes	it	easier	for	us	to	grade	
 and	debug).		The	“index.html”	entry	point	for	your	game	should	be	in	the	topmost	directory.		
