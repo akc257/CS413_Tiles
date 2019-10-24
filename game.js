@@ -1,10 +1,37 @@
+var GAME_WIDTH = 720;
+var GAME_HEIGHT = 400;
+var GAME_SCALE = 4;
+var DIM = 16;
+
 var gameport = document.getElementById("gameport");
 
-var renderer = PIXI.autoDetectRenderer(400, 400 , {backgroundColor: 0x3079f0});
+var renderer = PIXI.autoDetectRenderer(GAME_WIDTH, GAME_HEIGHT, {backgroundColor: 0x3079f0});
 
 gameport.appendChild(renderer.view);
 
 var stage = new PIXI.Container();
+stage.scale.x = GAME_SCALE;
+stage.scale.y = GAME_SCALE;
+
+// Scene objects get loaded in the ready function
+var hero;
+var world;
+var water;
+
+// Character movement constants:
+var MOVE_LEFT = 1;
+var MOVE_RIGHT = 2;
+var MOVE_UP = 3;
+var MOVE_DOWN = 4;
+var MOVE_NONE = 0;
+
+// The move function starts or continues movement
+function move() {
+
+  if (hero.direction == MOVE_NONE) {
+    hero.moving = false;
+    return;
+  }
 
 //code from Dr Palmer
 PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
