@@ -1,4 +1,4 @@
-var GAME_WIDTH = 720;
+var GAME_WIDTH = 400;
 var GAME_HEIGHT = 400;
 var GAME_SCALE = 4;
 var DIM = 16;
@@ -18,6 +18,7 @@ var hero;
 var world;
 var water;
 var lava;
+var space;
 
 // Character movement constants:
 var MOVE_LEFT = 1;
@@ -51,6 +52,11 @@ function move() {
     hero.moving = false;
     return;
   }
+  if (space[(hero.gy+dy-1)*12 + (hero.gx+dx)] != 0) {
+    hero.moving = false;
+    return;
+  }
+
 
   hero.gx += dx;
   hero.gy += dy;
@@ -93,17 +99,17 @@ PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 
 PIXI.loader
   .add('map.json')
-  .add('map2.png')
-  .add('hero.png')
+  .add('map.png')
+  .add('Astro.png')
   .load(ready);
 
 function ready() {
   createjs.Ticker.setFPS(60);
   var tu = new TileUtilities(PIXI);
-  world = tu.makeTiledWorld("map.json", "tileset.png");
+  world = tu.makeTiledWorld("map.json", "map.png");
   stage.addChild(world);
 
-  hero = new PIXI.Sprite(PIXI.loader.resources["hero.png"].texture);
+  hero = new PIXI.Sprite(PIXI.loader.resources["Astro.png"].texture);
   hero.gx = 9;
   hero.gy = 5;
   hero.x = hero.gx*DIM;
@@ -116,9 +122,11 @@ function ready() {
   entities.addChild(hero);
 
   // get wate object
-  water = world.getObject("water").data;
+  water = world.getObject("Water").data;
   // get lava object
-  lava = world.getObject("lava").data;
+  lava = world.getObject("Lava").data;
+
+  space = world.getObject("Space").data;
 
   hero.direction = MOVE_NONE;
   hero.moving = false;
