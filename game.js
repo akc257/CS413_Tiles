@@ -1,6 +1,6 @@
 var GAME_WIDTH = 700;
 var GAME_HEIGHT = 400;
-var GAME_SCALE = 1;
+var GAME_SCALE = 1.5;
 // var HORIZON_Y = GAME_HEIGHT/GAME_SCALE/2;
 
 var gameport = document.getElementById("gameport");
@@ -83,7 +83,8 @@ function ready() {
   world = tu.makeTiledWorld("map_json", "map.png");
   stage.addChild(world);
 
-  player = new PIXI.Sprite(PIXI.Texture.fromImage("blob.png"));
+  player = new PIXI.Sprite(PIXI.Texture.fromImage("Astro_up.png"));
+  player.scale.set(0.1, 0.1);
   player.position.x = 350;
   player.position.y = 200;
   player.anchor.set(0.5);
