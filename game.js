@@ -75,6 +75,7 @@ PIXI.loader
   .add('map_json', 'map.json')
   .add('map', 'map.png')
   .add('blob', 'blob.png')
+  .add('assets.json')
   .load(ready);
 
 function ready() {
@@ -82,7 +83,21 @@ function ready() {
   world = tu.makeTiledWorld("map_json", "map.png");
   stage.addChild(world);
 
-  player = new PIXI.Sprite(PIXI.Texture.fromImage("blob.png"));
+  var frames = [];
+  for( var i = 1; i <=3; i++)
+  {
+    frames.push(PIXI.Texture.fromFrame("astro" + i + ".png"));
+  }
+
+  player = new PIXI.extras.MovieClip(frames);
+  player.scale.x = .25;
+  player.scale.y = .25;
+  player.position.x = 30;
+  player.position.y = 130;
+  player.animationSpeed = .1;
+  player.play();
+
+  // player = new PIXI.Sprite(PIXI.Texture.fromImage("blob.png"));
   player.anchor.set(0.5);
 
   // Find the entity layer
