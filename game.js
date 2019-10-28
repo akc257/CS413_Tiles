@@ -1,6 +1,6 @@
-var GAME_WIDTH = 700;
+var GAME_WIDTH = 720;
 var GAME_HEIGHT = 400;
-var GAME_SCALE = 1.5;
+var GAME_SCALE = 1;
 // var HORIZON_Y = GAME_HEIGHT/GAME_SCALE/2;
 
 var gameport = document.getElementById("gameport");
@@ -74,12 +74,7 @@ PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 PIXI.loader
   .add('map_json', 'map.json')
   .add('map', 'map.png')
-<<<<<<< HEAD
-  .add('astro', 'Astro_up.png')
-  .add('blob', 'blob.png')
-=======
   .add('assets.json')
->>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
   .load(ready);
 
 function ready() {
@@ -87,9 +82,6 @@ function ready() {
   world = tu.makeTiledWorld("map_json", "map.png");
   stage.addChild(world);
 
-<<<<<<< HEAD
-  player = new PIXI.Sprite(PIXI.Texture.fromImage("Astro_up.png"));
-=======
   var frames = [];
   for( var i = 1; i <=3; i++)
   {
@@ -99,7 +91,6 @@ function ready() {
   player = new PIXI.extras.MovieClip(frames);
   player.animationSpeed = .1;
 
->>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
   player.scale.set(0.1, 0.1);
   player.position.x = 350;
   player.position.y = 200;
