@@ -74,7 +74,6 @@ PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 PIXI.loader
   .add('map_json', 'map.json')
   .add('map', 'map.png')
-  .add('blob', 'blob.png')
   .add('assets.json')
   .load(ready);
 
@@ -90,17 +89,15 @@ function ready() {
   }
 
   player = new PIXI.extras.MovieClip(frames);
-  player.scale.x = .25;
-  player.scale.y = .25;
-  player.position.x = 30;
-  player.position.y = 130;
   player.animationSpeed = .1;
-  player.play();
 
-  // player = new PIXI.Sprite(PIXI.Texture.fromImage("blob.png"));
+  player.scale.set(0.1, 0.1);
+  player.position.x = 350;
+  player.position.y = 200;
   player.anchor.set(0.5);
 
-  // Find the entity layer
+  player.play();
+
   var entity_layer = world.getObject("GameObjects");
   entity_layer.addChild(player);
 
