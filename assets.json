@@ -1,5 +1,6 @@
 {"frames": {
 
+<<<<<<< HEAD
 "Astro_move_down.png":
 {
 	"frame": {"x":0,"y":336,"w":672,"h":672},
@@ -31,14 +32,45 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":336,"h":336},
 	"sourceSize": {"w":336,"h":336}
+=======
+"astro1.png":
+{
+	"frame": {"x":0,"y":0,"w":337,"h":337},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":337},
+	"sourceSize": {"w":337,"h":337}
+},
+"astro2.png":
+{
+	"frame": {"x":337,"y":0,"w":337,"h":337},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":337},
+	"sourceSize": {"w":337,"h":337}
+},
+"astro3.png":
+{
+	"frame": {"x":674,"y":0,"w":337,"h":337},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":337},
+	"sourceSize": {"w":337,"h":337}
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "assets.png",
 	"format": "RGBA8888",
+<<<<<<< HEAD
 	"size": {"w":672,"h":1680},
 	"scale": "1",
 	"smartupdate": "$TexturePacker:SmartUpdate:f06c509450db6eca4d40881d7f7c9625:c46364d983ff7357e04c394fad94f116:a759b6bbc8381ac9c472b28f589ad0d6$"
+=======
+	"size": {"w":1011,"h":337},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ce652f1a96b2d8a91521d38fd32c7f27:7afce5d1a33de99bcc7307fd41674eaa:a759b6bbc8381ac9c472b28f589ad0d6$"
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
 }
 }

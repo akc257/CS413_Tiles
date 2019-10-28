@@ -74,8 +74,12 @@ PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 PIXI.loader
   .add('map_json', 'map.json')
   .add('map', 'map.png')
+<<<<<<< HEAD
   .add('astro', 'Astro_up.png')
   .add('blob', 'blob.png')
+=======
+  .add('assets.json')
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
   .load(ready);
 
 function ready() {
@@ -83,13 +87,26 @@ function ready() {
   world = tu.makeTiledWorld("map_json", "map.png");
   stage.addChild(world);
 
+<<<<<<< HEAD
   player = new PIXI.Sprite(PIXI.Texture.fromImage("Astro_up.png"));
+=======
+  var frames = [];
+  for( var i = 1; i <=3; i++)
+  {
+    frames.push(PIXI.Texture.fromFrame("astro" + i + ".png"));
+  }
+
+  player = new PIXI.extras.MovieClip(frames);
+  player.animationSpeed = .1;
+
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
   player.scale.set(0.1, 0.1);
   player.position.x = 350;
   player.position.y = 200;
   player.anchor.set(0.5);
 
-  // Find the entity layer
+  player.play();
+
   var entity_layer = world.getObject("GameObjects");
   entity_layer.addChild(player);
 

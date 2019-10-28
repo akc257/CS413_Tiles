@@ -26,13 +26,21 @@
             </struct>
         </array>
         <key>allowRotation</key>
+<<<<<<< HEAD
         <true/>
+=======
+        <false/>
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
         <key>shapeDebug</key>
         <false/>
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
+<<<<<<< HEAD
         <string>pixijs4</string>
+=======
+        <string>json</string>
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
         <key>textureFileName</key>
         <filename></filename>
         <key>flipPVR</key>
@@ -56,7 +64,11 @@
         <key>jxrCompressionLevel</key>
         <uint>0</uint>
         <key>ditherType</key>
+<<<<<<< HEAD
         <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
+=======
+        <enum type="SettingsBase::DitherType">PngQuantLow</enum>
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -132,7 +144,11 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
+<<<<<<< HEAD
                 <filename></filename>
+=======
+                <filename>../Project_2/assets.json</filename>
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
             </struct>
         </map>
         <key>multiPack</key>
@@ -175,12 +191,17 @@
             <key>heuristicMask</key>
             <false/>
             <key>defaultPivotPoint</key>
+<<<<<<< HEAD
             <point_f>0,0</point_f>
+=======
+            <point_f>0.5,0.5</point_f>
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
             <key>writePivotPoints</key>
             <false/>
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+<<<<<<< HEAD
             <key type="filename">Astro_move_down.png</key>
             <key type="filename">Astro_move_left.png</key>
             <struct type="IndividualSpriteSettings">
@@ -197,25 +218,42 @@
             </struct>
             <key type="filename">Astro_right.png</key>
             <key type="filename">Astro_up.png</key>
+=======
+            <key type="filename">astro1.png</key>
+            <key type="filename">astro2.png</key>
+            <key type="filename">astro3.png</key>
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
+<<<<<<< HEAD
                 <rect>84,84,168,168</rect>
                 <key>scale9Paddings</key>
                 <rect>84,84,168,168</rect>
+=======
+                <rect>84,84,169,169</rect>
+                <key>scale9Paddings</key>
+                <rect>84,84,169,169</rect>
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
+<<<<<<< HEAD
             <filename>Astro_move_down.png</filename>
             <filename>Astro_move_left.png</filename>
             <filename>Astro_right.png</filename>
             <filename>Astro_up.png</filename>
+=======
+            <filename>astro2.png</filename>
+            <filename>astro3.png</filename>
+            <filename>astro1.png</filename>
+>>>>>>> de643848302d27f4069a93bd36ad5dfcee2b056e
         </array>
         <key>ignoreFileList</key>
         <array/>
