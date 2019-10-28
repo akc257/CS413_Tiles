@@ -1,4 +1,4 @@
-var GAME_WIDTH = 720;
+var GAME_WIDTH = 700;
 var GAME_HEIGHT = 400;
 var GAME_SCALE = 1;
 // var HORIZON_Y = GAME_HEIGHT/GAME_SCALE/2;
@@ -74,6 +74,7 @@ PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 PIXI.loader
   .add('map_json', 'map.json')
   .add('map', 'map.png')
+  .add('astro', 'Astro_up.png')
   .add('blob', 'blob.png')
   .load(ready);
 
@@ -83,6 +84,8 @@ function ready() {
   stage.addChild(world);
 
   player = new PIXI.Sprite(PIXI.Texture.fromImage("blob.png"));
+  player.position.x = 350;
+  player.position.y = 200;
   player.anchor.set(0.5);
 
   // Find the entity layer
