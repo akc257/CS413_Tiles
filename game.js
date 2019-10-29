@@ -61,40 +61,42 @@ function gameloop() {
 
 // movePlayer function makes smoother movement
 function movePlayer() {
+        // top wall
       if(playerUp && player.position.y > 64) {
           player.position.y -= 2;
       }
+        // bottom wall
       if(playerDown && player.position.y < 688) {
           player.position.y += 2;
       }
+        // left wall
       if(playerLeft && player.position.x > 64) {
           player.position.x -= 2;
       }
+        // right wall
       if(playerRight && player.position.x < 688) {
           player.position.x += 2;
       }
 }
 
-
+// keydown handler booleans for button presses for moving player
 function keydownEventHandler(e) {
-
+    // key movement for player up, down, left, right
   if (e.keyCode == 87) { // W key
     playerUp = true;
   }
-
   if (e.keyCode == 83) { // S key
     playerDown = true;
   }
-
   if (e.keyCode == 65) { // A key
     playerLeft = true;
   }
-
   if (e.keyCode == 68) { // D key
     playerRight = true;
   }
 }
 
+// key up handlers for player not moving
 function keyupEventHandler(e) {
   if (e.keyCode == 87) { // W key
     playerUp = false;
@@ -102,16 +104,15 @@ function keyupEventHandler(e) {
   if (e.keyCode == 83) { // S key
     playerDown = false;
   }
-
   if (e.keyCode == 65) { // A key
     playerLeft = false;
   }
-
   if (e.keyCode == 68) { // D key
     playerRight = false;
   }
 }
 
+// event listeners for key press and key up
 document.addEventListener('keydown', keydownEventHandler);
 document.addEventListener('keyup', keyupEventHandler);
 
@@ -149,20 +150,25 @@ function ready() {
 
   animate();
   update();
+
+  // boolean to stop update camera
   bool = false;
 }
 
+// function to animate player and move camera
 function animate(timestamp) {
   requestAnimationFrame(animate);
   update_camera();
   renderer.render(stage);
 }
 
+// update function to control player movement in game loop
 function update(){
     setInterval(gameloop, 20);
 }
 
 function update_camera() {
+    // conditional to prevent updating camera on start screen
   if( bool )
   {
     stage.x = -player.x*GAME_SCALE + GAME_WIDTH/2 - player.width/2*GAME_SCALE;
