@@ -1,6 +1,6 @@
 var GAME_WIDTH = 720;
 var GAME_HEIGHT = 400;
-var GAME_SCALE = 1;
+var GAME_SCALE = 2.25;
 // var HORIZON_Y = GAME_HEIGHT/GAME_SCALE/2;
 
 var gameport = document.getElementById("gameport");
@@ -22,7 +22,6 @@ function gameloop() {
 }
 
 // movePlayer function makes smoother movement
-
 function movePlayer() {
       if(playerUp && player.position.y > 64) {
           player.position.y -= 2;
@@ -37,6 +36,7 @@ function movePlayer() {
           player.position.x += 2;
       }
 }
+
 
 function keydownEventHandler(e) {
 
@@ -58,11 +58,9 @@ function keydownEventHandler(e) {
 }
 
 function keyupEventHandler(e) {
-
   if (e.keyCode == 87) { // W key
     playerUp = false;
   }
-
   if (e.keyCode == 83) { // S key
     playerDown = false;
   }
@@ -104,7 +102,6 @@ function ready() {
   player.scale.set(0.1, 0.1);
   player.position.x = 350;
   player.position.y = 200;
-  player.anchor.set(0.5);
 
   player.play();
 
