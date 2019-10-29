@@ -66,7 +66,7 @@ function movePlayer() {
           player.position.y -= 2;
       }
         // bottom wall
-      if(playerDown && player.position.y < 688) {
+      if(playerDown && player.position.y < 656) {
           player.position.y += 2;
       }
         // left wall
@@ -74,7 +74,7 @@ function movePlayer() {
           player.position.x -= 2;
       }
         // right wall
-      if(playerRight && player.position.x < 688) {
+      if(playerRight && player.position.x < 656) {
           player.position.x += 2;
       }
 }
