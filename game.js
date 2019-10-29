@@ -11,8 +11,6 @@ var renderer = new PIXI.autoDetectRenderer(GAME_WIDTH,
 gameport.appendChild(renderer.view);
 
 var stage = new PIXI.Container();
-// stage.scale.x = GAME_SCALE;
-// stage.scale.y = GAME_SCALE;
 
 // Scene objects get loaded in the ready function
 var playerUp, playerDown, playerRight, playerLeft;
@@ -23,14 +21,15 @@ var bool;
 var start_screen = new PIXI.Container();
 stage.addChild(start_screen);
 
+//background for start
 var start_screen_bg = new PIXI.Sprite(
   PIXI.Texture.fromImage("title_screen.png") );
 
-//button to navigate menus
+//button to enter game
 var start_screen_button = new PIXI.Sprite(
   PIXI.Texture.fromImage("play_button.png") );
 
-//start button to go to game
+//add start button to screen
 start_screen_bg.addChild(start_screen_button);
 start_screen_button.position.x = 30;
 start_screen_button.position.y = 325;
