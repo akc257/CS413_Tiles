@@ -1,25 +1,20 @@
 var GAME_WIDTH = 720;
 var GAME_HEIGHT = 400;
 var GAME_SCALE = 2.25;
-
+// var HORIZON_Y = GAME_HEIGHT/GAME_SCALE/2;
 
 var gameport = document.getElementById("gameport");
 var renderer = new PIXI.autoDetectRenderer(GAME_WIDTH,
                                            GAME_HEIGHT,
                                            {backgroundColor: 0x99D5FF});
+
 gameport.appendChild(renderer.view);
 
 var stage = new PIXI.Container();
-<<<<<<< HEAD
-=======
-stage.scale.x = GAME_SCALE;
-stage.scale.y = GAME_SCALE;
->>>>>>> 25f5fabd36ed1489a9649cdbab9befe9dacd2018
 
-// booleans for the player movement
+// Scene objects get loaded in the ready function
 var playerUp, playerDown, playerRight, playerLeft;
 var world;
-<<<<<<< HEAD
 var bool;
 
 //add start screen to scene graph
@@ -34,7 +29,7 @@ var start_screen_bg = new PIXI.Sprite(
 var start_screen_button = new PIXI.Sprite(
   PIXI.Texture.fromImage("play_button.png") );
 
-//add start button to screen
+//add start button to start
 start_screen_bg.addChild(start_screen_button);
 start_screen_button.position.x = 30;
 start_screen_button.position.y = 325;
@@ -47,43 +42,40 @@ function mouseStartHandler(e)
 {
   stage.removeChild(start_screen);
   stage.addChild(world);
+
+  //set scale for game to zoom in
   stage.scale.x = GAME_SCALE;
   stage.scale.y = GAME_SCALE;
+
+  //boolean to update camera set to true
   bool = true;
 }
 
 //call mousehandler when screen clicked on
 start_screen_button.interactive = true;
 start_screen_button.on('mousedown', mouseStartHandler);
-=======
->>>>>>> 25f5fabd36ed1489a9649cdbab9befe9dacd2018
 
-// game loop for player movement
 function gameloop() {
         movePlayer();
 }
 
 // movePlayer function makes smoother movement
 function movePlayer() {
-      // top wall
       if(playerUp && player.position.y > 64) {
           player.position.y -= 2;
       }
-      // bottom wall
-      if(playerDown && player.position.y < 656) {
+      if(playerDown && player.position.y < 688) {
           player.position.y += 2;
       }
-      // left wall
       if(playerLeft && player.position.x > 64) {
           player.position.x -= 2;
       }
-      // right wall
-      if(playerRight && player.position.x < 656) {
+      if(playerRight && player.position.x < 688) {
           player.position.x += 2;
       }
 }
 
-// keydown handler booleans for button presses for moving player
+
 function keydownEventHandler(e) {
 
   if (e.keyCode == 87) { // W key
@@ -103,7 +95,6 @@ function keydownEventHandler(e) {
   }
 }
 
-// key up handlers for player not moving
 function keyupEventHandler(e) {
   if (e.keyCode == 87) { // W key
     playerUp = false;
@@ -121,13 +112,11 @@ function keyupEventHandler(e) {
   }
 }
 
-// event listeners for key press and key up
 document.addEventListener('keydown', keydownEventHandler);
 document.addEventListener('keyup', keyupEventHandler);
 
 PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 
-// load
 PIXI.loader
   .add('map_json', 'map.json')
   .add('map', 'map.png')
@@ -137,8 +126,8 @@ PIXI.loader
 function ready() {
   var tu = new TileUtilities(PIXI);
   world = tu.makeTiledWorld("map_json", "map.png");
-  stage.addChild(world);
 
+  // create frames for character sprite
   var frames = [];
   for( var i = 1; i <=3; i++)
   {
@@ -148,6 +137,7 @@ function ready() {
   player = new PIXI.extras.MovieClip(frames);
   player.animationSpeed = .1;
 
+  // orient player
   player.scale.set(0.1, 0.1);
   player.position.x = 350;
   player.position.y = 200;
@@ -159,6 +149,7 @@ function ready() {
 
   animate();
   update();
+  bool = false;
 }
 
 function animate(timestamp) {
@@ -172,8 +163,11 @@ function update(){
 }
 
 function update_camera() {
-  stage.x = -player.x*GAME_SCALE + GAME_WIDTH/2 - player.width/2*GAME_SCALE;
-  stage.y = -player.y*GAME_SCALE + GAME_HEIGHT/2 + player.height/2*GAME_SCALE;
-  stage.x = -Math.max(0, Math.min(world.worldWidth*GAME_SCALE - GAME_WIDTH, -stage.x));
-  stage.y = -Math.max(0, Math.min(world.worldHeight*GAME_SCALE - GAME_HEIGHT, -stage.y));
+  if( bool )
+  {
+    stage.x = -player.x*GAME_SCALE + GAME_WIDTH/2 - player.width/2*GAME_SCALE;
+    stage.y = -player.y*GAME_SCALE + GAME_HEIGHT/2 + player.height/2*GAME_SCALE;
+    stage.x = -Math.max(0, Math.min(world.worldWidth*GAME_SCALE - GAME_WIDTH, -stage.x));
+    stage.y = -Math.max(0, Math.min(world.worldHeight*GAME_SCALE - GAME_HEIGHT, -stage.y));
+  }
 }
