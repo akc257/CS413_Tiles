@@ -24,16 +24,16 @@ function gameloop() {
 // movePlayer function makes smoother movement
 
 function movePlayer() {
-      if(playerUp) {
+      if(playerUp && player.position.y > 64) {
           player.position.y -= 2;
       }
-      if(playerDown) {
+      if(playerDown && player.position.y < 688) {
           player.position.y += 2;
       }
-      if(playerLeft) {
+      if(playerLeft && player.position.x > 64) {
           player.position.x -= 2;
       }
-      if(playerRight) {
+      if(playerRight && player.position.x < 688) {
           player.position.x += 2;
       }
 }
