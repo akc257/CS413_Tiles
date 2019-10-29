@@ -14,60 +14,70 @@ stage.scale.x = GAME_SCALE;
 stage.scale.y = GAME_SCALE;
 
 // Scene objects get loaded in the ready function
-var player;
+var playerUp, playerDown, playerRight, playerLeft;
 var world;
 
-// Character movement constants:
-var MOVE_LEFT = 1;
-var MOVE_RIGHT = 2;
-var MOVE_UP = 3;
-var MOVE_DOWN = 4;
-var MOVE_NONE = 0;
+function gameloop() {
+        movePlayer();
+}
 
 // The move function starts or continues movement
-function move() {
-  if (player.direction == MOVE_NONE) {
-    player.moving = false;
-    console.log(player.y);
-    return;
-  }
-  player.moving = true;
-  console.log("move");
-
-  if (player.direction == MOVE_LEFT) {
-    createjs.Tween.get(player).to({x: player.x - 32}, 500).call(move);
-  }
-  if (player.direction == MOVE_RIGHT)
-    createjs.Tween.get(player).to({x: player.x + 32}, 500).call(move);
-
-  if (player.direction == MOVE_UP)
-    createjs.Tween.get(player).to({y: player.y - 32}, 500).call(move);
-
-  if (player.direction == MOVE_DOWN)
-    createjs.Tween.get(player).to({y: player.y + 32}, 500).call(move);
+function movePlayer() {
+    // put a wall of about 50 pixels at the top of the screen
+      if(playerUp) {
+          player.position.y -= 2;
+      }
+      if(playerDown) {
+          player.position.y += 2;
+      }
+      if(playerLeft) {
+          player.position.x -= 2;
+      }
+      if(playerRight) {
+          player.position.x += 2;
+      }
 }
 
 function keydownEventHandler(e) {
 
   if (e.keyCode == 87) { // W key
-    player.position.y -= 16;
+    playerUp = true;
   }
 
   if (e.keyCode == 83) { // S key
-    player.position.y += 16;
+    playerDown = true;
   }
 
   if (e.keyCode == 65) { // A key
-    player.position.x -= 16;
+    playerLeft = true;
   }
 
   if (e.keyCode == 68) { // D key
-    player.position.x += 16;
+    playerRight = true;
+  }
+}
+
+function keyupEventHandler(e) {
+
+  if (e.keyCode == 87) { // W key
+    playerUp = false;
+  }
+
+  if (e.keyCode == 83) { // S key
+    playerDown = false;
+  }
+
+  if (e.keyCode == 65) { // A key
+    playerLeft = false;
+  }
+
+  if (e.keyCode == 68) { // D key
+    playerRight = false;
   }
 }
 
 document.addEventListener('keydown', keydownEventHandler);
-
+document.addEventListener('keyup', keyupEventHandler);
 
 PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 
@@ -102,12 +112,17 @@ function ready() {
   entity_layer.addChild(player);
 
   animate();
+  update();
 }
 
 function animate(timestamp) {
   requestAnimationFrame(animate);
   update_camera();
   renderer.render(stage);
+}
+
+function update(){
+    setInterval(gameloop, 20);
 }
 
 function update_camera() {
