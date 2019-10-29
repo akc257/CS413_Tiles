@@ -21,9 +21,9 @@ function gameloop() {
         movePlayer();
 }
 
-// The move function starts or continues movement
+// movePlayer function makes smoother movement
+
 function movePlayer() {
-    // put a wall of about 50 pixels at the top of the screen
       if(playerUp) {
           player.position.y -= 2;
       }
