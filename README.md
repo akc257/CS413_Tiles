@@ -29,9 +29,9 @@ of your project.
 ## What do I turn in?
 In BBLearn you should turn in a report (entered with the BBLearn editor) with the
 following format:
-* Project # and Title
-* Your Title
-* http://dana.ucc.nau.edu/YOUR_ID/cs413/project_3
+* Project 3 Tiles
+* Astro
+* http://dana.ucc.nau.edu/akc257/cs413/project_3
 * https://github.com/akc257/CS413_Tiles
 ### What should Github Repo contain?
 Your Github repository should contain all the code for your repository including any library
