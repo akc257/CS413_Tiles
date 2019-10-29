@@ -1,20 +1,25 @@
 var GAME_WIDTH = 720;
 var GAME_HEIGHT = 400;
 var GAME_SCALE = 2.25;
-// var HORIZON_Y = GAME_HEIGHT/GAME_SCALE/2;
+
 
 var gameport = document.getElementById("gameport");
 var renderer = new PIXI.autoDetectRenderer(GAME_WIDTH,
                                            GAME_HEIGHT,
                                            {backgroundColor: 0x99D5FF});
-
 gameport.appendChild(renderer.view);
 
 var stage = new PIXI.Container();
+<<<<<<< HEAD
+=======
+stage.scale.x = GAME_SCALE;
+stage.scale.y = GAME_SCALE;
+>>>>>>> 25f5fabd36ed1489a9649cdbab9befe9dacd2018
 
-// Scene objects get loaded in the ready function
+// booleans for the player movement
 var playerUp, playerDown, playerRight, playerLeft;
 var world;
+<<<<<<< HEAD
 var bool;
 
 //add start screen to scene graph
@@ -50,28 +55,35 @@ function mouseStartHandler(e)
 //call mousehandler when screen clicked on
 start_screen_button.interactive = true;
 start_screen_button.on('mousedown', mouseStartHandler);
+=======
+>>>>>>> 25f5fabd36ed1489a9649cdbab9befe9dacd2018
 
+// game loop for player movement
 function gameloop() {
         movePlayer();
 }
 
 // movePlayer function makes smoother movement
 function movePlayer() {
+      // top wall
       if(playerUp && player.position.y > 64) {
           player.position.y -= 2;
       }
-      if(playerDown && player.position.y < 688) {
+      // bottom wall
+      if(playerDown && player.position.y < 656) {
           player.position.y += 2;
       }
+      // left wall
       if(playerLeft && player.position.x > 64) {
           player.position.x -= 2;
       }
-      if(playerRight && player.position.x < 688) {
+      // right wall
+      if(playerRight && player.position.x < 656) {
           player.position.x += 2;
       }
 }
 
-
+// keydown handler booleans for button presses for moving player
 function keydownEventHandler(e) {
 
   if (e.keyCode == 87) { // W key
@@ -91,6 +103,7 @@ function keydownEventHandler(e) {
   }
 }
 
+// key up handlers for player not moving
 function keyupEventHandler(e) {
   if (e.keyCode == 87) { // W key
     playerUp = false;
@@ -108,11 +121,13 @@ function keyupEventHandler(e) {
   }
 }
 
+// event listeners for key press and key up
 document.addEventListener('keydown', keydownEventHandler);
 document.addEventListener('keyup', keyupEventHandler);
 
 PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 
+// load
 PIXI.loader
   .add('map_json', 'map.json')
   .add('map', 'map.png')
@@ -122,7 +137,7 @@ PIXI.loader
 function ready() {
   var tu = new TileUtilities(PIXI);
   world = tu.makeTiledWorld("map_json", "map.png");
-  //stage.addChild(world);
+  stage.addChild(world);
 
   var frames = [];
   for( var i = 1; i <=3; i++)
@@ -144,7 +159,6 @@ function ready() {
 
   animate();
   update();
-  bool = false;
 }
 
 function animate(timestamp) {
@@ -158,11 +172,8 @@ function update(){
 }
 
 function update_camera() {
-  if( bool )
-  {
-    stage.x = -player.x*GAME_SCALE + GAME_WIDTH/2 - player.width/2*GAME_SCALE;
-    stage.y = -player.y*GAME_SCALE + GAME_HEIGHT/2 + player.height/2*GAME_SCALE;
-    stage.x = -Math.max(0, Math.min(world.worldWidth*GAME_SCALE - GAME_WIDTH, -stage.x));
-    stage.y = -Math.max(0, Math.min(world.worldHeight*GAME_SCALE - GAME_HEIGHT, -stage.y));
-  }
+  stage.x = -player.x*GAME_SCALE + GAME_WIDTH/2 - player.width/2*GAME_SCALE;
+  stage.y = -player.y*GAME_SCALE + GAME_HEIGHT/2 + player.height/2*GAME_SCALE;
+  stage.x = -Math.max(0, Math.min(world.worldWidth*GAME_SCALE - GAME_WIDTH, -stage.x));
+  stage.y = -Math.max(0, Math.min(world.worldHeight*GAME_SCALE - GAME_HEIGHT, -stage.y));
 }
